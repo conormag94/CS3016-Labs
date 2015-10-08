@@ -43,10 +43,14 @@ getPosition (Player pt) = pt
 getPosition (Chest pt) = pt
 
 takesome :: Int -> [a] -> [a]
-takesome n = id
+takesome _ [] = []
+takesome 0 _ = []
+takesome n (x:xs) = x : takesome (n-1) xs
 
 dropsome :: Int -> [a] -> [a]
-dropsome n = id
+dropsome _ [] = []
+dropsome 0 xs = xs 
+dropsome n (x:xs) = dropsome (n-1) xs
 
 chunksOf :: Int -> [a] -> [[a]]
 chunksOf n [] = []
@@ -79,7 +83,7 @@ instance Show Object where
 
 handleInput :: Char -> Scene -> Scene
 handleInput 'j' (Scene map (Player (x, y)) objects) = (Scene map (Player (x, (y-1))) objects)
-handleInput 'h' (Scene map (Player (x, y)) objects) = (Scene map (Player ((x-1), y)) objects)
+handleInput 'i' (Scene map (Player (x, y)) objects) = (Scene map (Player ((x-1), y)) objects)
 handleInput 'k' (Scene map (Player (x, y)) objects) = (Scene map (Player (x, (y+1))) objects)
 handleInput 'l' (Scene map (Player (x, y)) objects) = (Scene map (Player ((x+1), y)) objects)
 handleInput _ x = x
