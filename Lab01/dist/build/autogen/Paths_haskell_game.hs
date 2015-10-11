@@ -12,16 +12,15 @@ import Prelude
 catchIO :: IO a -> (Exception.IOException -> IO a) -> IO a
 catchIO = Exception.catch
 
-
 version :: Version
-version = Version {versionBranch = [0,1,0,0], versionTags = []}
+version = Version [0,1,0,0] []
 bindir, libdir, datadir, libexecdir, sysconfdir :: FilePath
 
-bindir     = "/users/ugrad/cmaguir5/.cabal/bin"
-libdir     = "/users/ugrad/cmaguir5/.cabal/lib/x86_64-linux-ghc-7.6.3/haskell-game-0.1.0.0"
-datadir    = "/users/ugrad/cmaguir5/.cabal/share/x86_64-linux-ghc-7.6.3/haskell-game-0.1.0.0"
-libexecdir = "/users/ugrad/cmaguir5/.cabal/libexec"
-sysconfdir = "/users/ugrad/cmaguir5/.cabal/etc"
+bindir     = "/Users/Conor/Library/Haskell/bin"
+libdir     = "/Users/Conor/Library/Haskell/ghc-7.10.2-x86_64/lib/haskell-game-0.1.0.0"
+datadir    = "/Users/Conor/Library/Haskell/share/ghc-7.10.2-x86_64/haskell-game-0.1.0.0"
+libexecdir = "/Users/Conor/Library/Haskell/libexec"
+sysconfdir = "/Users/Conor/Library/Haskell/etc"
 
 getBinDir, getLibDir, getDataDir, getLibexecDir, getSysconfDir :: IO FilePath
 getBinDir = catchIO (getEnv "haskell_game_bindir") (\_ -> return bindir)

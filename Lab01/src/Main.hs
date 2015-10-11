@@ -82,8 +82,8 @@ instance Show Object where
 {- Handle a key press from the player -}
 
 handleInput :: Char -> Scene -> Scene
-handleInput 'j' (Scene map (Player (x, y)) objects) = (Scene map (Player (x, (y-1))) objects)
-handleInput 'i' (Scene map (Player (x, y)) objects) = (Scene map (Player ((x-1), y)) objects)
+handleInput 'i' (Scene map (Player (x, y)) objects) = (Scene map (Player (x, (y-1))) objects)
+handleInput 'j' (Scene map (Player (x, y)) objects) = (Scene map (Player ((x-1), y)) objects)
 handleInput 'k' (Scene map (Player (x, y)) objects) = (Scene map (Player (x, (y+1))) objects)
 handleInput 'l' (Scene map (Player (x, y)) objects) = (Scene map (Player ((x+1), y)) objects)
 handleInput _ x = x
