@@ -77,7 +77,7 @@ instance Show Tile where
   show Empty  = " "
 
 instance Show Object where
-  show (Player _) = "♿"
+  show (Player _) = "♞"
   show (Chest _) = "?"
 
 {- Handle a key press from the player -}
